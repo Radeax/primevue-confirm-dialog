@@ -15,7 +15,7 @@ import { useConfirm } from 'primevue/useconfirm';
 defineProps({
   openDialog: {
     type: Function,
-    default: () => { },
+    default: () => {},
   },
 });
 

@@ -5,13 +5,16 @@
   <Button @click="confirmRed">Change to Red</Button>
   
   <ConfirmDialog ref="confirmation" />
+  <ToastMessage ref="saved" />
 </template>
 
 <script setup lang="ts">
 import ConfirmDialog from './components/ConfirmDialog.vue';
-
 import { ref } from 'vue';
+import ToastMessage from './components/ToastMessage.vue';
+
 const confirmation = ref<InstanceType<typeof ConfirmDialog>>();
+const saved = ref<InstanceType<typeof ToastMessage>>();
 
 const greenDialog = {
   message: 'Are you sure you want to change color to Green?',
@@ -20,6 +23,7 @@ const greenDialog = {
   reject: () => { // buttons are reversed so this acts like 'accept'
     isGreen.value = true;
     isRed.value = false;
+    showToast();
   }
 };
 
@@ -38,6 +42,7 @@ const isRed = ref(false);
 
 const confirmGreen = () => confirmation.value?.openDialog(greenDialog);
 const confirmRed = () => confirmation.value?.openDialog(redDialog);
+const showToast = () => saved.value?.showToast();
 </script>
 
 <style>
