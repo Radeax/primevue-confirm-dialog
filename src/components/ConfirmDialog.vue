@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import ConfirmDialog from 'primevue/confirmDialog';
+import ConfirmDialog from 'primevue/confirmdialog';
 import { useConfirm } from 'primevue/useconfirm';
 
 defineProps({
